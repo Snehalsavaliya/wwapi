@@ -30,15 +30,10 @@
                     "function": {
                       "type": "array",
                       "items": {
-                        "required": [],
-                        "properties": {}
+                        "type": "object"
                       }
                     }
-                  },
-                  "required": [
-                    "device",
-                    "function"
-                  ]
+                  }
                 },
                 "examples": {}
               }
@@ -183,8 +178,8 @@
                       "pass": "pass"
                     },
                     "function": [
-                      "02:updatedevice:true",
-                      "05:debuglog:false"
+                      "2:updatedevice:true",
+                      "5:debuglog:false"
                     ],
                     "device": [
                       "CenterId1:DeviceId1",
