@@ -80,7 +80,7 @@
                   "device": {
                     "type": "array",
                     "items": {
-                      "required": [],
+                      "required": ["CenterId:DeviceID"],
                       "properties": {}
                     }
                   }

@@ -178,8 +178,8 @@
                       "pass": "pass"
                     },
                     "function": [
-                      "2:updatedevice:true",
-                      "5:debuglog:false"
+                      "02:updatedevice:true",
+                      "05:debuglog:false"
                     ],
                     "device": [
                       "CenterId1:DeviceId1",
