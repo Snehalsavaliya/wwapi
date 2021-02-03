@@ -24,12 +24,32 @@
       "get": {
         "summary": "Your GET endpoint",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "schedule": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "schedule"
+                  ]
+                }
+              }
+            }
+          }
+        },
         "operationId": "get-shedules-shedulesId"
       },
-      "delete": {
+      "patch": {
         "summary": "",
-        "operationId": "delete-shedules-shedulesId",
+        "operationId": "patch-shedules-shedulesId",
         "responses": {
           "202": {
             "description": "Accepted"
@@ -60,9 +80,6 @@
                       "pass"
                     ]
                   },
-                  "scheduleId": {
-                    "type": "string"
-                  },
                   "device": {
                     "type": "array",
                     "items": {
@@ -73,7 +90,6 @@
                 },
                 "required": [
                   "auth",
-                  "scheduleId",
                   "device"
                 ]
               }
