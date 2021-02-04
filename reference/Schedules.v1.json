@@ -22,7 +22,7 @@
         }
       ],
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Get Schedule details",
         "tags": [],
         "responses": {
           "200": {
@@ -94,7 +94,7 @@
         }
       },
       "patch": {
-        "summary": "",
+        "summary": "Delete devices from schedule",
         "operationId": "patch-shedules-shedulesId",
         "responses": {
           "202": {

@@ -101,7 +101,7 @@
         }
       },
       "patch": {
-        "summary": "Update User Information",
+        "summary": "Update Device Information",
         "operationId": "patch-devices",
         "responses": {
           "202": {
