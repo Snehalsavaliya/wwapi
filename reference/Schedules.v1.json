@@ -42,7 +42,56 @@
             }
           }
         },
-        "operationId": "get-shedules-shedulesId"
+        "operationId": "get-shedules-shedulesId",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "auth": {
+                    "type": "object",
+                    "properties": {
+                      "applicationid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ]
+                  }
+                },
+                "required": [
+                  "auth"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "auth": {
+                      "applicationid": "JobMgtTool",
+                      "userid": "user",
+                      "password": "pass"
+                    },
+                    "device": "CenterId1:DeviceId1"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "patch": {
         "summary": "",
@@ -65,22 +114,29 @@
                   "auth": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "string"
+                      "applicationid": {
+                        "type": "string",
+                        "minLength": 1
                       },
-                      "pass": {
-                        "type": "string"
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
                       }
                     },
                     "required": [
-                      "id",
-                      "pass"
+                      "applicationid",
+                      "userid",
+                      "password"
                     ]
                   },
                   "device": {
                     "type": "array",
                     "items": {
-                      "required": ["CenterId:DeviceID"],
+                      "required": [],
                       "properties": {}
                     }
                   }
@@ -94,8 +150,9 @@
                 "example-1": {
                   "value": {
                     "auth": {
-                      "id": "user",
-                      "pass": "pass"
+                      "applicationid": "JobMgtTool",
+                      "userid": "user",
+                      "password": "pass"
                     },
                     "device": [
                       "CenterId1:DeviceId1",

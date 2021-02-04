@@ -53,25 +53,48 @@
                 "description": "",
                 "type": "object",
                 "properties": {
-                  "userId": {
-                    "type": "string"
+                  "auth": {
+                    "type": "object",
+                    "properties": {
+                      "applicationid": {
+                        "type": "string"
+                      },
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ]
                   },
-                  "Password": {
-                    "type": "string"
-                  },
-                  "CenterId": {
-                    "type": "string"
-                  },
-                  "DeviceId": {
-                    "type": "string"
+                  "device": {
+                    "type": "string",
+                    "minLength": 1
                   }
                 },
                 "required": [
-                  "userId",
-                  "Password",
-                  "CenterId",
-                  "DeviceId"
+                  "auth",
+                  "device"
                 ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "auth": {
+                      "applicationid": "",
+                      "userid": "user",
+                      "password": "pass"
+                    },
+                    "device": "CenterId1:DeviceId1"
+                  }
+                }
               }
             }
           }
@@ -138,29 +161,37 @@
                 "properties": {
                   "auth": {
                     "type": "object",
-                    "required": [
-                      "id",
-                      "pass"
-                    ],
                     "properties": {
-                      "id": {
+                      "applicationid": {
                         "type": "string"
                       },
-                      "pass": {
-                        "type": "string"
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
                       }
-                    }
+                    },
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ]
                   },
                   "function": {
                     "type": "array",
                     "items": {
-                      "type": "object"
+                      "required": [],
+                      "properties": {}
                     }
                   },
                   "device": {
                     "type": "array",
                     "items": {
-                      "type": "object"
+                      "required": [],
+                      "properties": {}
                     }
                   }
                 },
@@ -174,8 +205,9 @@
                 "example-1": {
                   "value": {
                     "auth": {
-                      "id": "user",
-                      "pass": "pass"
+                      "applicationid": "",
+                      "userid": "user",
+                      "password": "pass"
                     },
                     "function": [
                       "02:updatedevice:true",
