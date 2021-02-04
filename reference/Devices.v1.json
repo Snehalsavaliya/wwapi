@@ -162,7 +162,7 @@
             "description": "devices Not Found"
           }
         },
-        "description": "Update the infromation of an existing devices.",
+        "description": "Update the information of an existing devices.",
         "requestBody": {
           "content": {
             "application/json": {
