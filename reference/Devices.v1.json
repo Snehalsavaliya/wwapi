@@ -35,7 +35,17 @@
                     }
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "device": "CenterId1:DeviceId1",
+                      "function": [
+                        "02:updatedevice:true",
+                        "05:debuglog:false"
+                      ]
+                    }
+                  }
+                }
               }
             }
           },
