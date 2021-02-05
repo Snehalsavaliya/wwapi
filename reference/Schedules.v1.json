@@ -40,10 +40,7 @@
                     },
                     "device": {
                       "type": "array",
-                      "items": {
-                        "required": [],
-                        "properties": {}
-                      }
+                      "items": {}
                     }
                   },
                   "required": [
@@ -59,6 +56,33 @@
                         "CenterId1:DeviceId1",
                         "CenterId2:DeviceId2"
                       ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "User or password is invalid"
                     }
                   }
                 }
