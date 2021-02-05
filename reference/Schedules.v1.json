@@ -3,7 +3,10 @@
   "info": {
     "title": "Schedules",
     "version": "1.0",
-    "description": "Retrive or update schedule information"
+    "description": "Retrive or update schedule information",
+    "contact": {
+      "name": "cs"
+    }
   },
   "servers": [
     {
@@ -139,7 +142,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Get devices from schdule  "
       },
       "patch": {
         "summary": "Delete devices from schedule",
@@ -161,6 +165,11 @@
                 "properties": {
                   "auth": {
                     "type": "object",
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ],
                     "properties": {
                       "applicationid": {
                         "type": "string",
@@ -174,19 +183,11 @@
                         "type": "string",
                         "minLength": 1
                       }
-                    },
-                    "required": [
-                      "applicationid",
-                      "userid",
-                      "password"
-                    ]
+                    }
                   },
                   "device": {
                     "type": "array",
-                    "items": {
-                      "required": [],
-                      "properties": {}
-                    }
+                    "items": {}
                   }
                 },
                 "required": [
@@ -212,8 +213,10 @@
                 }
               }
             }
-          }
-        }
+          },
+          "description": "Application id, user id , password and devices to be deleted"
+        },
+        "description": "Delete devices from schedule"
       }
     }
   },
