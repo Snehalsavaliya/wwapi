@@ -254,6 +254,7 @@
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {},
+    "securitySchemes": {}
   }
 }
