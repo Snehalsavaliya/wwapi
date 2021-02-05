@@ -41,21 +41,23 @@
                       "type": "string",
                       "minLength": 1
                     },
-                    "device": {
+                    "devices": {
                       "type": "array",
-                      "items": {}
+                      "items": {
+                        "type": "string"
+                      }
                     }
                   },
                   "required": [
                     "schedule",
-                    "device"
+                    "devices"
                   ]
                 },
                 "examples": {
                   "example-1": {
                     "value": {
                       "schedule": "1",
-                      "device": [
+                      "devices": [
                         "CenterId1:DeviceId1",
                         "CenterId2:DeviceId2"
                       ]
@@ -185,14 +187,16 @@
                       }
                     }
                   },
-                  "device": {
+                  "devices": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                      "type": "string"
+                    }
                   }
                 },
                 "required": [
                   "auth",
-                  "device"
+                  "devices"
                 ]
               },
               "examples": {
@@ -203,7 +207,7 @@
                       "userid": "user",
                       "password": "pass"
                     },
-                    "device": [
+                    "devices": [
                       "CenterId1:DeviceId1",
                       "CenterId2:DeviceId2",
                       "CenterId3:DeviceId3",
