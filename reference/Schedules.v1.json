@@ -93,6 +93,33 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Schedule not found"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "operationId": "get-shedules-shedulesId",

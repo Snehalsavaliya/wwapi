@@ -85,6 +85,33 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Device not found"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "operationId": "get-devices",
@@ -142,7 +169,7 @@
               }
             }
           },
-          "description": "Application id, user id , password and device to be retrive"
+          "description": "Application id, user id , password and device to be retrived"
         }
       },
       "patch": {
