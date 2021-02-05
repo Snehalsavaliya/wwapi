@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:44321"
+      "url": "https://api.cs-remote-care.jp/v1"
     }
   ],
   "paths": {
