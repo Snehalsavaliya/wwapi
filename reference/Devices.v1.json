@@ -141,7 +141,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "Application id, user id , password and device to be retrive"
         }
       },
       "patch": {
@@ -252,7 +253,7 @@
               }
             }
           },
-          "description": "Patch user properties to update."
+          "description": "Application id, user id , password,  functions settings and devices to be updated"
         },
         "parameters": []
       }
