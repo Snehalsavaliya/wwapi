@@ -14,15 +14,16 @@
     }
   ],
   "paths": {
-    "/shedules/{shedulesId}": {
+    "/shedules/{sheduleId}": {
       "parameters": [
         {
           "schema": {
             "type": "string"
           },
-          "name": "shedulesId",
+          "name": "sheduleId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "Schedule id to be retrieved"
         }
       ],
       "get": {
@@ -164,8 +165,7 @@
                       "applicationid": "JobMgtTool",
                       "userid": "user",
                       "password": "pass"
-                    },
-                    "device": "CenterId1:DeviceId1"
+                    }
                   }
                 }
               }
@@ -183,7 +183,58 @@
             "description": "Accepted"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "User or password is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Schedule not found"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "requestBody": {

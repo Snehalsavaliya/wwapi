@@ -199,7 +199,7 @@
                 "examples": {
                   "example-1": {
                     "value": {
-                      "Error": "string"
+                      "Error": "Invalid user or password"
                     }
                   }
                 }
@@ -207,7 +207,7 @@
             }
           }
         },
-        "description": "Update the function's state of existing devices.",
+        "description": "Update the functions' state of existing devices.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -280,7 +280,7 @@
               }
             }
           },
-          "description": "Application id, user id , password,  functions settings and devices to be updated"
+          "description": "Application id, user id , password,  functions' state and devices to be updated"
         },
         "parameters": []
       }
