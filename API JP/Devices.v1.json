@@ -115,7 +115,7 @@
           }
         },
         "operationId": "get-devices",
-        "description": "デバイスの情報を取得 (デバイスIdとセンターId)",
+        "description": "デバイスの情報を取得(デバイスIdとセンターId)",
         "parameters": [],
         "requestBody": {
           "content": {
@@ -169,7 +169,7 @@
               }
             }
           },
-          "description": "アプリケーションId、ユーザーId、パスワード、取得したいデバイス (デバイスIdとセンターId)"
+          "description": "アプリケーションId、ユーザーId、パスワード、取得するデバイス(デバイスIdとセンターId)"
         }
       },
       "patch": {
@@ -280,7 +280,7 @@
               }
             }
           },
-          "description": "アプリケーションId、ユーザーId、パスワード、機能一覧と無垢・有効、更新したいデバイス一覧 (デバイスIdとセンターId)"
+          "description": "アプリケーションId、ユーザーId、パスワード、機能一覧と無垢・有効、更新するデバイスの一覧(デバイスIdとセンターId)"
         },
         "parameters": []
       }

@@ -23,7 +23,7 @@
           "name": "sheduleId",
           "in": "path",
           "required": true,
-          "description": "取得と変更したいのスケジュールId"
+          "description": "取得と変更するのスケジュールId"
         }
       ],
       "get": {
@@ -297,7 +297,7 @@
               }
             }
           },
-          "description": "アプリケーションId、ユーザーId、パスワード、スケジュールから削除したいデバイス (デバイスIdとセンターId)"
+          "description": "アプリケーションId、ユーザーId、パスワード、スケジュールから削除するデバイス一覧(デバイスIdとセンターId)"
         },
         "description": "デバイスをスケジュールから削除する"
       }
