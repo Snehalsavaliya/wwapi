@@ -173,7 +173,7 @@
           },
           "description": "Application id, user id , password"
         },
-        "description": "Get devices from schdule  "
+        "description": "Get devices from schedule  "
       },
       "patch": {
         "summary": "Delete devices from schedule",
