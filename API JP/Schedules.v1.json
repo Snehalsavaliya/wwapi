@@ -3,9 +3,9 @@
   "info": {
     "title": "Schedules",
     "version": "1.0",
-    "description": "Retrive or update schedule information",
+    "description": "スケジュールの情報を取得と更新する",
     "contact": {
-      "name": "cs"
+      "name": "CS"
     }
   },
   "servers": [
@@ -23,11 +23,11 @@
           "name": "sheduleId",
           "in": "path",
           "required": true,
-          "description": "Schedule id to be retrieved"
+          "description": "取得と変更したいのスケジュールId"
         }
       ],
       "get": {
-        "summary": "Get Schedule details",
+        "summary": "スケジュールの情報を取得",
         "tags": [],
         "responses": {
           "200": {
@@ -123,7 +123,7 @@
             }
           }
         },
-        "operationId": "get-shedules-shedulesId",
+        "operationId": "get-shedules-sheduleId",
         "requestBody": {
           "content": {
             "application/json": {
@@ -171,13 +171,13 @@
               }
             }
           },
-          "description": "Application id, user id , password"
+          "description": "アプリケーションId、ユーザーId、パスワード"
         },
-        "description": "Get devices from schdule  "
+        "description": "スケジュールの情報を取得"
       },
       "patch": {
-        "summary": "Delete devices from schedule",
-        "operationId": "patch-shedules-shedulesId",
+        "summary": "デバイスをスケジュールから削除する",
+        "operationId": "patch-shedules-sheduleId",
         "responses": {
           "202": {
             "description": "Accepted"
@@ -297,9 +297,9 @@
               }
             }
           },
-          "description": "Application id, user id , password and devices to be deleted"
+          "description": "アプリケーションId、ユーザーId、パスワード、スケジュールから削除したいデバイス (デバイスIdとセンターId)"
         },
-        "description": "Delete devices from schedule"
+        "description": "デバイスをスケジュールから削除する"
       }
     }
   },

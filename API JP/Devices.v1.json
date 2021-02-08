@@ -3,9 +3,9 @@
   "info": {
     "title": "Devices",
     "version": "1.0",
-    "description": "Retrive and update the device information",
+    "description": "デバイスの情報を取得と更新する",
     "contact": {
-      "name": "cs"
+      "name": "CS"
     }
   },
   "servers": [
@@ -17,11 +17,11 @@
     "/devices": {
       "parameters": [],
       "get": {
-        "summary": "Get Device Info by Device ID",
+        "summary": "デバイスの情報を取得",
         "tags": [],
         "responses": {
           "200": {
-            "description": "Device Found",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -115,7 +115,7 @@
           }
         },
         "operationId": "get-devices",
-        "description": "Retrieve the information of the device with the matching device id.",
+        "description": "デバイスの情報を取得 (デバイスIdとセンターId)",
         "parameters": [],
         "requestBody": {
           "content": {
@@ -169,11 +169,11 @@
               }
             }
           },
-          "description": "Application id, user id , password and device to be retrived"
+          "description": "アプリケーションId、ユーザーId、パスワード、取得したいデバイス (デバイスIdとセンターId)"
         }
       },
       "patch": {
-        "summary": "Update Device Information",
+        "summary": "デバイスの情報を更新する",
         "operationId": "patch-devices",
         "responses": {
           "202": {
@@ -207,7 +207,7 @@
             }
           }
         },
-        "description": "Update the functions' state of existing devices.",
+        "description": "デバイスの機能を無効か有効に変更する",
         "requestBody": {
           "content": {
             "application/json": {
@@ -280,7 +280,7 @@
               }
             }
           },
-          "description": "Application id, user id , password,  functions' state and devices to be updated"
+          "description": "アプリケーションId、ユーザーId、パスワード、機能一覧と無垢・有効、更新したいデバイス一覧 (デバイスIdとセンターId)"
         },
         "parameters": []
       }
