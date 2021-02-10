@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Schedules",
+    "version": "1.0",
+    "description": "Retrive or update schedule information",
+    "contact": {
+      "name": "cs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.cs-remote-care.jp/v1"
+    }
+  ],
+  "paths": {
+    "/shedules/{sheduleId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "sheduleId",
+          "in": "path",
+          "required": true,
+          "description": "Schedule id to be retrieved"
+        }
+      ],
+      "patch": {
+        "summary": "Delete devices from schedule",
+        "operationId": "patch-shedules-shedulesId",
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "taskid": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "taskid"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "taskid": "12"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "User or password is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Schedule not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "auth": {
+                    "type": "object",
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ],
+                    "properties": {
+                      "applicationid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "devices": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "auth",
+                  "devices"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "auth": {
+                      "applicationid": "JobMgtTool",
+                      "userid": "user",
+                      "password": "pass"
+                    },
+                    "devices": [
+                      "CenterId1:DeviceId1",
+                      "CenterId2:DeviceId2",
+                      "CenterId3:DeviceId3",
+                      "CenterId4:DeviceId4"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "description": "Application id, user id , password and devices to be deleted"
+        },
+        "description": "Delete devices from schedule"
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  }
+}

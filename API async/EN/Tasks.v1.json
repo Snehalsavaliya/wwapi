@@ -1,0 +1,180 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Tasks",
+    "version": "1.0",
+    "description": "Retrive task information",
+    "contact": {
+      "name": "cs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.cs-remote-care.jp/v1"
+    }
+  ],
+  "paths": {
+    "/tasks/{taskid}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "taskid",
+          "in": "path",
+          "required": true,
+          "description": "Id of task"
+        }
+      ],
+      "get": {
+        "summary": "Get task information by task id",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "taskid": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "taskid",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "taskid": "12",
+                      "status": "InProgress"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Invalid User or password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "Error": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Error"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "Error": "Task not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-tasks",
+        "description": "Retrieve task information with the matching task id.",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "auth": {
+                    "type": "object",
+                    "properties": {
+                      "applicationid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "userid": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "password": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ]
+                  }
+                },
+                "required": [
+                  "auth"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "auth": {
+                      "applicationid": "JobMgtTool",
+                      "userid": "user",
+                      "password": "password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Application id, user id , password"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  }
+}
