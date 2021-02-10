@@ -119,7 +119,7 @@
           }
         },
         "operationId": "get-tasks",
-        "description": "Retrieve task information with the matching task id.",
+        "description": "Retrieve task information with the matching of task id.",
         "parameters": [],
         "requestBody": {
           "content": {

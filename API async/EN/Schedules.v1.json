@@ -23,7 +23,7 @@
           "name": "sheduleId",
           "in": "path",
           "required": true,
-          "description": "Schedule id to be retrieved"
+          "description": "Id of schedule"
         }
       ],
       "patch": {
