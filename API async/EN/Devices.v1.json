@@ -85,11 +85,6 @@
                 "properties": {
                   "auth": {
                     "type": "object",
-                    "required": [
-                      "applicationid",
-                      "userid",
-                      "password"
-                    ],
                     "properties": {
                       "applicationid": {
                         "type": "string",
@@ -103,25 +98,59 @@
                         "type": "string",
                         "minLength": 1
                       }
+                    },
+                    "required": [
+                      "applicationid",
+                      "userid",
+                      "password"
+                    ]
+                  },
+                  "function": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "id",
+                        "enable"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "enable": {
+                          "type": "boolean"
+                        }
+                      }
                     }
                   },
-                  "functions": {
+                  "device": {
                     "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
-                      "type": "string"
-                    }
-                  },
-                  "devices": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
+                      "required": [
+                        "centerid",
+                        "deviceid"
+                      ],
+                      "properties": {
+                        "centerid": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "deviceid": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
                     }
                   }
                 },
                 "required": [
                   "auth",
-                  "functions",
-                  "devices"
+                  "function",
+                  "device"
                 ]
               },
               "examples": {
@@ -132,16 +161,33 @@
                       "userid": "user",
                       "password": "password"
                     },
-                    "functions": [
-                      "30001:30001:true",
-                      "30002:30002:false",
-                      "30004:30004:true"
+                    "function": [
+                      {
+                        "id": "30001",
+                        "enable": true
+                      },
+                      {
+                        "id": "30002",
+                        "enable": false
+                      },
+                      {
+                        "id": "30003",
+                        "enable": true
+                      }
                     ],
-                    "devices": [
-                      "CenterId1:DeviceId1",
-                      "CenterId2:DeviceId2",
-                      "CenterId3:DeviceId3",
-                      "CenterId4:DeviceId4"
+                    "device": [
+                      {
+                        "centerid": "CSRC1",
+                        "deviceid": "AA2J021901031"
+                      },
+                      {
+                        "centerid": "CSRC2",
+                        "deviceid": "AA2J021901032"
+                      },
+                      {
+                        "centerid": "CSRC3",
+                        "deviceid": "AA2J021901033"
+                      }
                     ]
                   }
                 }
