@@ -3,7 +3,7 @@
   "info": {
     "title": "Schedules",
     "version": "1.0",
-    "description": "Retrive or update schedule information",
+    "description": "Update schedule information",
     "contact": {
       "name": "cs"
     }

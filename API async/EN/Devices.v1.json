@@ -3,7 +3,7 @@
   "info": {
     "title": "Devices",
     "version": "1.0",
-    "description": "Retrive and update the device information",
+    "description": "Update the device information",
     "contact": {
       "name": "cs"
     }

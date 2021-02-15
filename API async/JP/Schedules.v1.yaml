@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: Schedules
+  version: '1.0'
+  description: スケジュールの情報を更新する
+  contact:
+    name: cs
+servers:
+  - url: 'https://api.cs-remote-care.jp/v1'
+paths:
+  '/shedules/{sheduleId}':
+    parameters:
+      - schema:
+          type: string
+        name: sheduleId
+        in: path
+        required: true
+        description: スケジュールId
+    patch:
+      summary: スケジュールの情報を更新する
+      operationId: patch-shedules-shedulesId
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  taskid:
+                    type: string
+                    minLength: 1
+                required:
+                  - taskid
+              examples:
+                example-1:
+                  value:
+                    taskid: '12'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  Error:
+                    type: string
+                    minLength: 1
+                required:
+                  - Error
+              examples:
+                example-1:
+                  value:
+                    Error: User or password is invalid
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  Error:
+                    type: string
+                    minLength: 1
+                required:
+                  - Error
+              examples:
+                example-1:
+                  value:
+                    Error: Schedule not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                auth:
+                  type: object
+                  required:
+                    - applicationid
+                    - userid
+                    - password
+                  properties:
+                    applicationid:
+                      type: string
+                      minLength: 1
+                    userid:
+                      type: string
+                      minLength: 1
+                    password:
+                      type: string
+                      minLength: 1
+                device:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      centerid:
+                        type: string
+                        minLength: 1
+                      deviceid:
+                        type: string
+                        minLength: 1
+                    required:
+                      - centerid
+                      - deviceid
+              required:
+                - auth
+                - device
+            examples:
+              example-1:
+                value:
+                  auth:
+                    applicationid: JobMgtTool
+                    userid: user
+                    password: pass
+                  device:
+                    - centerid: CSRC1
+                      deviceid: AA2J021901031
+                    - centerid: CSRC2
+                      deviceid: AA2J021901032
+                    - centerid: CSRC3
+                      deviceid: AA2J021901033
+        description: 認証情報、デバイス情報
+      description: デバイスをスケジュールから削除する
+components:
+  schemas: {}
+  securitySchemes: {}

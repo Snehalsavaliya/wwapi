@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Devices
+  version: '1.0'
+  description: デバイスの情報を取得と更新する
+  contact:
+    name: cs
+servers:
+  - url: 'https://api.cs-remote-care.jp/v1'
+paths:
+  /devices:
+    parameters: []
+    patch:
+      summary: デバイスの情報を更新する
+      operationId: patch-devices
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  taskid:
+                    type: string
+                    minLength: 1
+                required:
+                  - taskid
+              examples:
+                example-1:
+                  value:
+                    taskid: '12'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  Error:
+                    type: string
+                    minLength: 1
+                required:
+                  - Error
+              examples:
+                example-1:
+                  value:
+                    Error: Invalid user or password
+      description: デバイスの機能を無効か有効に変更する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                auth:
+                  type: object
+                  properties:
+                    applicationid:
+                      type: string
+                      minLength: 1
+                    userid:
+                      type: string
+                      minLength: 1
+                    password:
+                      type: string
+                      minLength: 1
+                  required:
+                    - applicationid
+                    - userid
+                    - password
+                device:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required:
+                      - centerid
+                      - deviceid
+                    properties:
+                      centerid:
+                        type: string
+                        minLength: 1
+                      deviceid:
+                        type: string
+                        minLength: 1
+                function:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required:
+                      - id
+                      - enable
+                    properties:
+                      id:
+                        type: string
+                        minLength: 1
+                      enable:
+                        type: boolean
+              required:
+                - auth
+                - device
+                - function
+            examples:
+              example-1:
+                value:
+                  auth:
+                    applicationid: JobMgtTool
+                    userid: user
+                    password: password
+                  function:
+                    - id: '30001'
+                      enable: true
+                    - id: '30002'
+                      enable: false
+                    - id: '30003'
+                      enable: true
+                  device:
+                    - centerid: CSRC1
+                      deviceid: AA2J021901031
+                    - centerid: CSRC2
+                      deviceid: AA2J021901032
+                    - centerid: CSRC3
+                      deviceid: AA2J021901033
+        description: 認証情報、デバイス情報、機能情報(無効・有効)
+      parameters: []
+components:
+  schemas: {}
+  securitySchemes: {}
