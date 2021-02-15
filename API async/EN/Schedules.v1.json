@@ -141,16 +141,32 @@
                       }
                     }
                   },
-                  "devices": {
+                  "device": {
                     "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
-                      "type": "string"
+                      "type": "object",
+                      "properties": {
+                        "centerid": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "deviceid": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "centerid",
+                        "deviceid"
+                      ]
                     }
                   }
                 },
                 "required": [
                   "auth",
-                  "devices"
+                  "device"
                 ]
               },
               "examples": {
@@ -161,11 +177,19 @@
                       "userid": "user",
                       "password": "pass"
                     },
-                    "devices": [
-                      "CenterId1:DeviceId1",
-                      "CenterId2:DeviceId2",
-                      "CenterId3:DeviceId3",
-                      "CenterId4:DeviceId4"
+                    "device": [
+                      {
+                        "centerid": "CSRC1",
+                        "deviceid": "AA2J021901031"
+                      },
+                      {
+                        "centerid": "CSRC2",
+                        "deviceid": "AA2J021901032"
+                      },
+                      {
+                        "centerid": "CSRC3",
+                        "deviceid": "AA2J021901033"
+                      }
                     ]
                   }
                 }

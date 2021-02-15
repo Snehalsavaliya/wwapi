@@ -45,6 +45,10 @@
                     "status": {
                       "type": "string",
                       "minLength": 1
+                    },
+                    "errormessage": {
+                      "type": "string",
+                      "minLength": 1
                     }
                   },
                   "required": [
@@ -53,10 +57,18 @@
                   ]
                 },
                 "examples": {
-                  "example-1": {
+                  "executing": {
                     "value": {
                       "taskid": "12",
-                      "status": "InProgress"
+                      "status": "exicuting",
+                      "errormessage": ""
+                    }
+                  },
+                  "error": {
+                    "value": {
+                      "taskid": "12",
+                      "status": "error",
+                      "errormessage": "Invalid inputs"
                     }
                   }
                 }
