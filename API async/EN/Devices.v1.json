@@ -105,26 +105,6 @@
                       "password"
                     ]
                   },
-                  "function": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "minItems": 1,
-                    "items": {
-                      "required": [
-                        "id",
-                        "enable"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "enable": {
-                          "type": "boolean"
-                        }
-                      }
-                    }
-                  },
                   "device": {
                     "type": "array",
                     "uniqueItems": true,
@@ -145,12 +125,32 @@
                         }
                       }
                     }
+                  },
+                  "function": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "id",
+                        "enable"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "enable": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
                   }
                 },
                 "required": [
                   "auth",
-                  "function",
-                  "device"
+                  "device",
+                  "function"
                 ]
               },
               "examples": {
