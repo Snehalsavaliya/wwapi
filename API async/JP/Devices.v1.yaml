@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Devices
   version: '1.0'
-  description: デバイスの情報を取得と更新する
+  description: デバイスの情報を更新する
   contact:
     name: cs
 servers:
@@ -126,7 +126,7 @@ paths:
                       deviceid: AA2J021901032
                     - centerid: CSRC3
                       deviceid: AA2J021901033
-        description: 認証情報、デバイス情報、機能情報(無効・有効)
+        description: 認証情報、デバイス情報、機能情報 (無効・有効)
       parameters: []
 components:
   schemas: {}

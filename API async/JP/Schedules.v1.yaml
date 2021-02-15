@@ -128,7 +128,7 @@ paths:
                     - centerid: CSRC3
                       deviceid: AA2J021901033
         description: 認証情報、デバイス情報
-      description: デバイスをスケジュールから削除する
+      description: スケジュールからデバイスを削除する
 components:
   schemas: {}
   securitySchemes: {}
