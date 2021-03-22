@@ -31,43 +31,42 @@ paths:
                   taskid:
                     type: string
                     minLength: 1
-                  status:
-                    type: string
-                    minLength: 1
-                  errormessage:
+                  message:
                     type: string
                     minLength: 1
                 required:
                   - taskid
-                  - status
+                  - message
               examples:
-                executing:
+                inprogress:
                   value:
-                    taskid: '12'
-                    status: executing
-                    errormessage: ''
-                error:
+                    taskid: '123'
+                    message: inprogress
+                failed:
                   value:
-                    taskid: '12'
-                    status: error
-                    errormessage: Invalid inputs
-        '401':
-          description: Unauthorized
+                    taskid: '123'
+                    message: failed
+        '403':
+          description: Forbidden
           content:
             application/json:
               schema:
                 description: ''
                 type: object
                 properties:
-                  Error:
+                  taskid:
+                    type: string
+                  message:
                     type: string
                     minLength: 1
                 required:
-                  - Error
+                  - taskid
+                  - message
               examples:
                 example-1:
                   value:
-                    Error: Invalid User or password
+                    taskid: ''
+                    message: Error for CSRC credentials are incorrect or not authorized.
         '404':
           description: Not Found
           content:
@@ -85,6 +84,48 @@ paths:
                 example-1:
                   value:
                     Error: Task not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  taskid:
+                    type: string
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - taskid
+                  - message
+              examples:
+                example-1:
+                  value:
+                    taskid: ''
+                    message: Internal Server Error.
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  taskid:
+                    type: string
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - taskid
+                  - message
+              examples:
+                example-1:
+                  value:
+                    taskid: ''
+                    message: Service Unavailable.
       operationId: get-tasks
       description: タスクIDでタスクの状況を確認する
       parameters: []

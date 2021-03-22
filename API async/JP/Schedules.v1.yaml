@@ -31,46 +31,81 @@ paths:
                   taskid:
                     type: string
                     minLength: 1
+                  message:
+                    type: string
                 required:
                   - taskid
+                  - message
               examples:
                 example-1:
                   value:
-                    taskid: '12'
-        '401':
-          description: Unauthorized
+                    taskid: '123'
+                    message: ''
+        '403':
+          description: Forbidden
           content:
             application/json:
               schema:
                 description: ''
                 type: object
                 properties:
-                  Error:
+                  taskid:
+                    type: string
+                  message:
                     type: string
                     minLength: 1
                 required:
-                  - Error
+                  - taskid
+                  - message
               examples:
                 example-1:
                   value:
-                    Error: User or password is invalid
+                    taskid: ''
+                    message: Error for CSRC credentials are incorrect or not authorized.
         '404':
           description: Not Found
+        '500':
+          description: Internal Server Error
           content:
             application/json:
               schema:
                 description: ''
                 type: object
                 properties:
-                  Error:
+                  taskid:
+                    type: string
+                  message:
                     type: string
                     minLength: 1
                 required:
-                  - Error
+                  - taskid
+                  - message
               examples:
                 example-1:
                   value:
-                    Error: Schedule not found
+                    taskid: ''
+                    message: Internal Server Error.
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  taskid:
+                    type: string
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - taskid
+                  - message
+              examples:
+                example-1:
+                  value:
+                    taskid: ''
+                    message: Service Unavailable.
       requestBody:
         content:
           application/json:
